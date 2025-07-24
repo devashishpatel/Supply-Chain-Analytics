@@ -330,7 +330,7 @@ st.set_page_config(layout="wide", page_title="Inventory Policy Simulation")
 
 st.title("📦 Multi-Policy Inventory Simulation Tool")
 st.markdown("""
-This application simulates and compares three common inventory policies: **(R, S)** and **(s, Q)**.
+This application simulates and compares two common inventory policies: **(R, S)** and **(s, Q)**.
 It demonstrates how different policies, forecast accuracies (MAPE %), and costs impact inventory levels, service, and financial performance.
 """)
 
@@ -349,7 +349,7 @@ elif policy == "(s, Q) Continuous Review":
 
 st.sidebar.markdown("**Common Parameters:**")
 params['lead_time'] = st.sidebar.slider("Lead Time (L days)", 0, 90, 7, 1)
-params['simulation_days'] = st.sidebar.slider("Simulation Duration (days)", 30, 730, 360, 10)
+params['simulation_days'] = st.sidebar.slider("Simulation Duration (days)", 30, 720, 180, 10)
 params['Z_score_for_service_level'] = st.sidebar.slider("Z-score for Service Level", 0.1, 3.5, 1.65, 0.01, format="%.2f", help="Determines target service level. Used in Safety Stock calculation.")
 
 st.sidebar.markdown("**True Demand Characteristics:**")
@@ -436,7 +436,7 @@ with tab2:
 with tab3:
     st.header("📊 Policy Comparison Analysis")
     st.markdown("""
-    This analysis compares the performance of all three inventory policies across different service levels, using the **Forecast MAPE** and **Cost Parameters** set in the sidebar.
+    This analysis compares the performance of two inventory policies across different service levels, using the **Forecast MAPE** and **Cost Parameters** set in the sidebar.
     This helps answer the strategic question: "Which policy is best for my business objectives?"
     - Note that continuous review policies ((R,S) and (s,Q)) generally require less safety stock than periodic review ((T,S)) because they are not exposed to demand uncertainty during the review period (T).
     """)
